@@ -28,4 +28,23 @@ describe('Testing summary form', () => {
         expect(consentCheckbox).not.toBeChecked();
         expect(submitButton).toBeDisabled();
     });
+
+    /* testa se a mensagem com os termos estão aparecendo
+     * e desaparecendo da tela
+     */
+    test('Agreement popover shows and hides on mouse hover', async () => {
+        render(<SummaryForm />);
+
+        const nullPopover = screen.queryByText(/no ice cream will actually be delivered/i);
+        expect(nullPopover).not.toBeInTheDocument();
+
+        const consentText = screen.getByText(/terms and conditions/i);
+        await user.hover(consentText);
+        const popover = screen.getByText(/no ice cream will actually be delivered/i);
+        expect(popover).toBeInTheDocument();
+
+        await user.unhover(consentText);
+        expect(popover).not.toBeInTheDocument();
+
+    });
 });
