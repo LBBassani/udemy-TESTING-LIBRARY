@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen } from '../utils/testing-library-utils'
 import Options from '../../pages/entry/Options'
 import { describe, expect, test } from 'vitest'
 
