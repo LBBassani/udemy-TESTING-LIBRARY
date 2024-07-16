@@ -5,7 +5,6 @@ import { OrderDetailsProvider } from "./contexts/OrderDetails";
 function App() {
   return (
     <Container>
-      <h1>Sundaes on Demand</h1>
       <OrderDetailsProvider>
         <OrderEntry />
       </OrderDetailsProvider>
