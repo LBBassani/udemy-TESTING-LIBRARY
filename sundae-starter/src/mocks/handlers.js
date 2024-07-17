@@ -1,4 +1,4 @@
-import { http, HttpResponse } from "msw";
+import { delay, http, HttpResponse } from "msw";
 
 export const handlers = [
     http.get('http://localhost:3030/scoops', () => {
@@ -19,5 +19,11 @@ export const handlers = [
         {
             name: 'Hot fudge', imagePath: '/images/hot-fudge.png'
         }])
+    }),
+    http.post('http://localhost:3030/order', async () => {
+        await delay(400);
+
+        return HttpResponse.json({}, {status: 201});
+
     })
 ]

@@ -1,12 +1,13 @@
 import { Container } from "react-bootstrap";
-import OrderEntry from "./pages/entry/OrderEntry";
 import { OrderDetailsProvider } from "./contexts/OrderDetails";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes";
 
 function App() {
   return (
     <Container>
       <OrderDetailsProvider>
-        <OrderEntry />
+        <RouterProvider router={router} />
       </OrderDetailsProvider>
     </Container>
   );

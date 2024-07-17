@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { pricePerItem } from "../constants";
 
 const OrderDetails = createContext();
@@ -14,7 +14,7 @@ export function useOrderDetails() {
 }
 
 export function OrderDetailsProvider(props){
-    const [optionCounts, setOptionCounts] = useState({
+    const [optionCounts, setOptionCounts] = useState(props.initialValue || {
         scoops: {},
         toppings: {}
     })
